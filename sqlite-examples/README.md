@@ -8,6 +8,7 @@ These examples illustrate different aspects of working with SQLite databases in 
 - Basic command-line database operations
 - Working with multiple databases
 - Transaction management
+- Exclusive transactions
 - Multithreaded database access
 
 ## Examples
@@ -58,7 +59,21 @@ Demonstrates transaction management in SQLite.
 
 **Related Blog Post:** [Working with Multiple Databases, Transactions, and SQLite Internals](https://dev.to/lovestaco/working-with-multiple-databases-transactions-and-sqlite-internals-2254)
 
-### 4. Multithreaded Application (`multi_threaded_application/`)
+### 4. Exclusive Transaction (`exclusive_transaction/`)
+
+Demonstrates exclusive transaction management in SQLite.
+
+**Features:**
+- Beginning exclusive transactions with `BEGIN EXCLUSIVE TRANSACTION`
+- Executing multiple INSERT and UPDATE operations within an exclusive transaction
+- Committing transactions with `COMMIT TRANSACTION`
+- Understanding exclusive lock behavior
+
+**Key Concept:** `BEGIN EXCLUSIVE TRANSACTION` acquires an exclusive lock on the database, preventing any other database connection from reading or writing while the transaction is active. This ensures complete isolation and prevents concurrent access.
+
+**Documentation:** [exclusive_transaction/README.md](exclusive_transaction/README.md)
+
+### 5. Multithreaded Application (`multi_threaded_application/`)
 
 Demonstrates concurrent database operations using SQLite with pthreads.
 
